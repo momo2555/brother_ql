@@ -2,9 +2,9 @@
 
 import sys, argparse, logging
 
-from brother_ql.raster import BrotherQLRaster
-from brother_ql.conversion import convert
-from brother_ql.devicedependent import label_type_specs
+from drivers.brother_ql.brother_ql.raster import BrotherQLRaster
+from drivers.brother_ql.brother_ql.conversion import convert
+from drivers.brother_ql.brother_ql.devicedependent import label_type_specs
 
 try:
     stdout = sys.stdout.buffer

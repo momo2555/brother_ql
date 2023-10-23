@@ -2,7 +2,7 @@
 
 import argparse
 
-from brother_ql.devicedependent import models, label_sizes, label_type_specs, DIE_CUT_LABEL, ENDLESS_LABEL, ROUND_DIE_CUT_LABEL
+from drivers.brother_ql.brother_ql.devicedependent import models, label_sizes, label_type_specs, DIE_CUT_LABEL, ENDLESS_LABEL, ROUND_DIE_CUT_LABEL
 
 def main():
     parser = argparse.ArgumentParser()

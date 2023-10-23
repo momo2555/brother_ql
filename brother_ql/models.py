@@ -3,7 +3,7 @@ from typing import Tuple
 
 import copy
 
-from brother_ql.helpers import ElementsManager
+from drivers.brother_ql.brother_ql.helpers import ElementsManager
 
 @attrs
 class Model(object):

@@ -6,9 +6,9 @@ Testing the packaged version of the Linux Kernel backend
 
 import argparse, logging, sys
 
-from brother_ql.backends import backend_factory, guess_backend, available_backends
-from brother_ql.backends.helpers import discover, send
-from brother_ql.output_helpers import log_discovered_devices, textual_description_discovered_devices
+from drivers.brother_ql.brother_ql.backends import backend_factory, guess_backend, available_backends
+from drivers.brother_ql.brother_ql.backends.helpers import discover, send
+from drivers.brother_ql.brother_ql.output_helpers import log_discovered_devices, textual_description_discovered_devices
 
 logger = logging.getLogger(__name__)
 

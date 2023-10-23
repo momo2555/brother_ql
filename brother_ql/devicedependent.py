@@ -40,7 +40,7 @@ two_color_support = []
 ## in brother_ql.models and brother_ql.labels
 
 def _populate_model_legacy_structures():
-    from brother_ql.models import ModelsManager
+    from drivers.brother_ql.brother_ql.models import ModelsManager
     global models
     global min_max_length_dots, min_max_feed, number_bytes_per_row, right_margin_addition
     global modesetting, cuttingsupport, expandedmode, compressionsupport, two_color_support
@@ -65,13 +65,13 @@ def _populate_label_legacy_structures():
     global DIE_CUT_LABEL, ENDLESS_LABEL, ROUND_DIE_CUT_LABEL, PTOUCH_ENDLESS_LABEL
     global label_sizes, label_type_specs
 
-    from brother_ql.labels import FormFactor
+    from drivers.brother_ql.brother_ql.labels import FormFactor
     DIE_CUT_LABEL =       FormFactor.DIE_CUT
     ENDLESS_LABEL =       FormFactor.ENDLESS
     ROUND_DIE_CUT_LABEL = FormFactor.ROUND_DIE_CUT
     PTOUCH_ENDLESS_LABEL =FormFactor.PTOUCH_ENDLESS
 
-    from brother_ql.labels import LabelsManager
+    from drivers.brother_ql.brother_ql.labels import LabelsManager
     lm = LabelsManager()
     label_sizes = list(lm.iter_identifiers())
     for label in lm.iter_elements():

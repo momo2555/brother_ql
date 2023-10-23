@@ -5,7 +5,7 @@ from enum import IntEnum
 
 import copy
 
-from brother_ql.helpers import ElementsManager
+from drivers.brother_ql.brother_ql.helpers import ElementsManager
 
 class FormFactor(IntEnum):
     """

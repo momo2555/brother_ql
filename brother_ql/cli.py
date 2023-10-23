@@ -8,8 +8,8 @@ import logging
 import click
 
 # imports from this very package
-from brother_ql.devicedependent import models, label_sizes, label_type_specs, DIE_CUT_LABEL, ENDLESS_LABEL, ROUND_DIE_CUT_LABEL
-from brother_ql.backends import available_backends, backend_factory
+from drivers.brother_ql.brother_ql.devicedependent import models, label_sizes, label_type_specs, DIE_CUT_LABEL, ENDLESS_LABEL, ROUND_DIE_CUT_LABEL
+from drivers.brother_ql.brother_ql.backends import available_backends, backend_factory
 
 
 logger = logging.getLogger('brother_ql')
@@ -47,9 +47,9 @@ def discover(ctx):
     discover_and_list_available_devices(backend)
 
 def discover_and_list_available_devices(backend):
-    from brother_ql.backends.helpers import discover
+    from drivers.brother_ql.brother_ql.backends.helpers import discover
     available_devices = discover(backend_identifier=backend)
-    from brother_ql.output_helpers import log_discovered_devices, textual_description_discovered_devices
+    from drivers.brother_ql.brother_ql.output_helpers import log_discovered_devices, textual_description_discovered_devices
     log_discovered_devices(available_devices)
     print(textual_description_discovered_devices(available_devices))
 
@@ -73,7 +73,7 @@ def labels(ctx, *args, **kwargs):
     """
     List the choices for --label
     """
-    from brother_ql.output_helpers import textual_label_description
+    from drivers.brother_ql.brother_ql.output_helpers import textual_label_description
     print(textual_label_description(label_sizes))
 
 @info.command()
@@ -136,9 +136,9 @@ def print_cmd(ctx, *args, **kwargs):
     backend = ctx.meta.get('BACKEND', 'pyusb')
     model = ctx.meta.get('MODEL')
     printer = ctx.meta.get('PRINTER')
-    from brother_ql.conversion import convert
-    from brother_ql.backends.helpers import send
-    from brother_ql.raster import BrotherQLRaster
+    from drivers.brother_ql.brother_ql.conversion import convert
+    from drivers.brother_ql.brother_ql.backends.helpers import send
+    from drivers.brother_ql.brother_ql.raster import BrotherQLRaster
     qlr = BrotherQLRaster(model)
     qlr.exception_on_warning = True
     kwargs['cut'] = not kwargs['no_cut']
@@ -151,7 +151,7 @@ def print_cmd(ctx, *args, **kwargs):
 @click.option('-f', '--filename-format', help="Filename format string. Default is: label{counter:04d}.png.")
 @click.pass_context
 def analyze_cmd(ctx, *args, **kwargs):
-    from brother_ql.reader import BrotherQLReader
+    from drivers.brother_ql.brother_ql.reader import BrotherQLReader
     br = BrotherQLReader(kwargs.get('instructions'))
     if kwargs.get('filename_format'): br.filename_fmt = kwargs.get('filename_format')
     br.analyse()
@@ -160,7 +160,7 @@ def analyze_cmd(ctx, *args, **kwargs):
 @click.argument('instructions', type=click.File('rb'))
 @click.pass_context
 def send_cmd(ctx, *args, **kwargs):
-    from brother_ql.backends.helpers import send
+    from drivers.brother_ql.brother_ql.backends.helpers import send
     send(instructions=kwargs['instructions'].read(), printer_identifier=ctx.meta.get('PRINTER'), backend_identifier=ctx.meta.get('BACKEND'), blocking=True)
 
 if __name__ == '__main__':

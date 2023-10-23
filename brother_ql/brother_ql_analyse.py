@@ -2,7 +2,7 @@
 
 import sys, argparse, logging
 
-from brother_ql.reader import BrotherQLReader
+from drivers.brother_ql.brother_ql.reader import BrotherQLReader
 
 def main():
 

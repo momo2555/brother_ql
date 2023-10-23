@@ -3,8 +3,8 @@
 import sys, argparse, logging, struct, io, logging, sys, os, time
 from pprint import pprint, pformat
 
-from brother_ql.reader import OPCODES, chunker, merge_specific_instructions, interpret_response, match_opcode, hex_format
-from brother_ql.backends import backend_factory, guess_backend
+from drivers.brother_ql.brother_ql.reader import OPCODES, chunker, merge_specific_instructions, interpret_response, match_opcode, hex_format
+from drivers.brother_ql.brother_ql.backends import backend_factory, guess_backend
 
 logger = logging.getLogger(__name__)
 

@@ -1,7 +1,7 @@
 import logging
 
-from brother_ql.devicedependent import label_type_specs
-from brother_ql.devicedependent import DIE_CUT_LABEL, ENDLESS_LABEL, ROUND_DIE_CUT_LABEL
+from drivers.brother_ql.brother_ql.devicedependent import label_type_specs
+from drivers.brother_ql.brother_ql.devicedependent import DIE_CUT_LABEL, ENDLESS_LABEL, ROUND_DIE_CUT_LABEL
 
 logger = logging.getLogger(__name__)
 

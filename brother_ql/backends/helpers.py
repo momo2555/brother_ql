@@ -9,8 +9,8 @@ Helpers for the subpackage brother_ql.backends
 
 import logging, time
 
-from brother_ql.backends import backend_factory, guess_backend
-from brother_ql.reader import interpret_response
+from drivers.brother_ql.brother_ql.backends import backend_factory, guess_backend
+from drivers.brother_ql.brother_ql.reader import interpret_response
 
 logger = logging.getLogger(__name__)
 
